@@ -1,10 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import ExpenseForm from "./components/ExpenseForm/ExpenseForm";
 import ExpenseInfo from "./components/ExpenseInfo/ExpenseInfo";
 import ExpenseList from "./components/ExpenseList/ExpenseList";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+
+const MemoToastContainer = React.memo(ToastContainer);
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -44,7 +46,7 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
+      <MemoToastContainer />
       <h2 className="mainHeading">Expense Tracker</h2>
       <div className="App">
         <ExpenseForm
